@@ -4,6 +4,7 @@ import './App.css';
 import SearchBar from './components/SearchBar/SearchBar.jsx';
 import SearchResults from './components/SearchResults/SearchResults.jsx';
 import Tracklist from './components/Tracklist/Tracklist.jsx';
+import Playlist from './components/Playlist/Playlist.jsx';
 import { Grid } from '@mui/material';
 
 function App() {
@@ -20,10 +21,11 @@ function App() {
     // Add more songs as needed
   ]);
 
-
+  const [playlistName, setPlaylistName] = useState("Name Your Playlist");
 
   return (
     <>
+       <Playlist playlistName={playlistName}/> 
       <SearchBar />
       <Grid container spacing={2}>
         <Grid item sm={6}>
