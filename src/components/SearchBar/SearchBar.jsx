@@ -9,16 +9,21 @@ export default function SearchBar() {
   <>
     <div className={styles.searchBarContainer}>  
     <TextField 
-      id="filled-basic" 
+      id="filled-search" 
       label="Search For a Track" 
       variant="filled"
-      size="small" 
+      size="small"
+      type="search"
+      className={styles.textField}
     />
     <button 
-      variant="contained" color="primary">
+      variant="contained" 
+      color="primary"
+      className={styles.button}
+    >
         Search
       </button>
-      </div>
+    </div>
   </>
   );
 }

@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,21 +7,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 
-function createData(name, artist) {
-  return { name, artist };
-}
+export default function Tracklist({ playlistSongs }) {
+  // Default prop handling
+  if (!playlistSongs || playlistSongs.length === 0) {
+    return <p>Add some songs to get started!</p>; // or some placeholder message
+  }
 
-const rows = [
-  createData('Not Like Us', 'Kendrick Lamar'),
-  createData('Silence', 'Marshmellow')
-];
-
-export default function Tracklist() {
   return (
-		<>
+    <>
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 350 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Track</TableCell>
@@ -29,21 +26,18 @@ export default function Tracklist() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
+          {playlistSongs.map((song, index) => (
+            <TableRow key={index}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {song.Title}
               </TableCell>
-              <TableCell>{row.artist}</TableCell>
+              <TableCell>{song.Artist}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-		<button>Save To Spotify</button>
+    <Button variant="contained">Save Playlist</Button>
   </>
   );
 }

@@ -1,5 +1,17 @@
 .searchBarContainer {
 	display: flex;
 	align-items: center;
-	gap: 10px;
+}
+
+.textField {
+	margin-right: 10px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+	padding: 8px;
+	width: 200px;
+
+}
+
+.button {
+	/* to be added later */
 }
