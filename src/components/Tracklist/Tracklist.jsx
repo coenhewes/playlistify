@@ -9,11 +9,15 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
-export default function Tracklist({ playlistSongs }) {
+export default function Tracklist({ trackList, setTrackList, removeFromTrackList }) {
   // Default prop handling
-  if (!playlistSongs || playlistSongs.length === 0) {
+  if (!trackList || trackList.length === 0) {
     return <p>Add some songs to get started!</p>; // or some placeholder message
   }
+
+  const handleRemoveClick = (track) => {
+    removeFromTrackList(track);
+  };
 
   return (
     <>
@@ -23,15 +27,17 @@ export default function Tracklist({ playlistSongs }) {
           <TableRow>
             <TableCell>Track</TableCell>
             <TableCell>Artist</TableCell>
+            <TableCell>Remove</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {playlistSongs.map((song, index) => (
+          {trackList.map((song, index) => (
             <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {song.Title}
               </TableCell>
               <TableCell>{song.Artist}</TableCell>
+              <TableCell><Button variant="outlined" onClick={() => handleRemoveClick(song)}>Remove</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -1,0 +1,9 @@
+
+.appContainer {
+  padding: 20px;
+}
+
+.gridContainer {
+  display: flex;
+  justify-content: space-between; /* Adjust spacing between items */
+}

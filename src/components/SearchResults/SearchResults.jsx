@@ -8,15 +8,19 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
-export default function SearchResults({ songs }) {
+export default function SearchResults({ songs, addToTrackList }) {
   // Default prop handling
   if (!songs || songs.length === 0) {
     return <p>No songs available</p>; // or some placeholder message
   }
 
+  const handleAddClick = (track) => {
+    addToTrackList(track);
+  };
+
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 350 }} aria-label="simple table">
+      <Table sx={{ minWidth: 300, width: '100%' }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Track</TableCell>
@@ -31,7 +35,7 @@ export default function SearchResults({ songs }) {
                 {song.Title}
               </TableCell>
               <TableCell>{song.Artist}</TableCell>
-              <TableCell><Button variant="outlined">Add</Button></TableCell>
+              <TableCell><Button variant="outlined" onClick={() => handleAddClick(song)}>Add</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
