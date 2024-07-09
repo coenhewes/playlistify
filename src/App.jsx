@@ -44,10 +44,10 @@ function App() {
 
   return (
     <div className={styles.appContainer}>
+      <h1>Playlistify</h1>
       <LoginButton/>
       <Grid container spacing={3} className={styles.gridContainer}>
         <Grid item xs={12} sm={6}>
-          <SearchBar />
           <SearchResults songs={songData} addToTrackList={addToTrackList}/>
         </Grid>
         <Grid item xs={12} sm={6}>

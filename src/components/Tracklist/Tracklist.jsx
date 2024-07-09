@@ -27,14 +27,14 @@ export default function Tracklist({ trackList, setTrackList, savePlayListFromTra
             </TableRow>
           </TableHead>
           <TableBody>
-            {trackList.map((song, index) => (
+            {trackList.map((track, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row">
-                  {song.Title}
+                  {track.name} {/* Update to match your track object property */}
                 </TableCell>
-                <TableCell>{song.Artist}</TableCell>
+                <TableCell>{track.artists[0].name} {/* Update to match your artist object property */}</TableCell>
                 <TableCell>
-                  <Button variant="outlined" onClick={() => handleRemoveClick(song)}>
+                  <Button variant="outlined" onClick={() => handleRemoveClick(track)}>
                     Remove
                   </Button>
                 </TableCell>
@@ -49,3 +49,4 @@ export default function Tracklist({ trackList, setTrackList, savePlayListFromTra
     </>
   );
 }
+
