@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,11 +10,6 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
 export default function SearchResults({ songs, addToTrackList }) {
-  // Default prop handling
-  if (!songs || songs.length === 0) {
-    return <p>No songs available</p>; // or some placeholder message
-  }
-
   const handleAddClick = (track) => {
     addToTrackList(track);
   };
@@ -35,7 +31,11 @@ export default function SearchResults({ songs, addToTrackList }) {
                 {song.Title}
               </TableCell>
               <TableCell>{song.Artist}</TableCell>
-              <TableCell><Button variant="outlined" onClick={() => handleAddClick(song)}>Add</Button></TableCell>
+              <TableCell>
+                <Button variant="outlined" onClick={() => handleAddClick(song)}>
+                  Add
+                </Button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

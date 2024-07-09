@@ -9,41 +9,43 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
-export default function Tracklist({ trackList, setTrackList, removeFromTrackList }) {
-  // Default prop handling
-  if (!trackList || trackList.length === 0) {
-    return <p>Add some songs to get started!</p>; // or some placeholder message
-  }
-
+export default function Tracklist({ trackList, setTrackList, savePlayListFromTrackList }) {
   const handleRemoveClick = (track) => {
-    removeFromTrackList(track);
+    const updatedTrackList = trackList.filter(item => item.uri !== track.uri);
+    setTrackList(updatedTrackList);
   };
 
   return (
     <>
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 350 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Track</TableCell>
-            <TableCell>Artist</TableCell>
-            <TableCell>Remove</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {trackList.map((song, index) => (
-            <TableRow key={index}>
-              <TableCell component="th" scope="row">
-                {song.Title}
-              </TableCell>
-              <TableCell>{song.Artist}</TableCell>
-              <TableCell><Button variant="outlined" onClick={() => handleRemoveClick(song)}>Remove</Button></TableCell>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 350 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Track</TableCell>
+              <TableCell>Artist</TableCell>
+              <TableCell>Remove</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-    <Button variant="contained">Save Playlist</Button>
-  </>
+          </TableHead>
+          <TableBody>
+            {trackList.map((song, index) => (
+              <TableRow key={index}>
+                <TableCell component="th" scope="row">
+                  {song.Title}
+                </TableCell>
+                <TableCell>{song.Artist}</TableCell>
+                <TableCell>
+                  <Button variant="outlined" onClick={() => handleRemoveClick(song)}>
+                    Remove
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <Button variant="contained" onClick={savePlayListFromTrackList}>
+        Save Playlist
+      </Button>
+    </>
   );
 }
