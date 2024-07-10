@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
-
+import 'dotenv';
 
 export default function LoginButton(){
-	const CLIENT_ID = "";
-	const REDIRECT_URI = "";
+	const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+	const REDIRECT_URI = import.meta.env.VITE_SPOTIFY_REDIRECT;
 	const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 	const RESPONSE_TYPE = "token";
 	const [token, setToken] = useState("");
