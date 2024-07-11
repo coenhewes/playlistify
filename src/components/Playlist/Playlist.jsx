@@ -2,11 +2,17 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import styles from './Playlist.module.css';
+import Button from '@mui/material/Button';
 
-export default function Playlist({playlistName, setPlaylistName}){
+export default function Playlist({playlistName, setPlaylistName, savePlayListToSpotify }){
 
   const handleChange = (e) => {
     setPlaylistName(e.target.value);
+  }
+
+
+  const handleClick = () => {
+    savePlayListToSpotify();
   }
 
   return (
@@ -21,6 +27,7 @@ export default function Playlist({playlistName, setPlaylistName}){
         label="Playlist Name"
         onChange={handleChange}
       />
+      <Button variant="contained" onClick={handleClick}>Save</Button>
       </div>
     </>
   );

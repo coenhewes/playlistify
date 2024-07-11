@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
-export default function Tracklist({ trackList, setTrackList, savePlayListFromTrackList }) {
+export default function Tracklist({ trackList, setTrackList, playlistId, saveTracksToPlaylist }) {
   const handleRemoveClick = (track) => {
     const updatedTrackList = trackList.filter(item => item.uri !== track.uri);
     setTrackList(updatedTrackList);
@@ -17,7 +16,9 @@ export default function Tracklist({ trackList, setTrackList, savePlayListFromTra
 
   return (
     <>
-      <TableContainer component={Paper}>
+      <div>
+      {playlistId ? 
+<div>      <TableContainer component={Paper}>
         <Table sx={{ minWidth: 350 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -43,9 +44,12 @@ export default function Tracklist({ trackList, setTrackList, savePlayListFromTra
           </TableBody>
         </Table>
       </TableContainer>
-      <Button variant="contained" onClick={savePlayListFromTrackList}>
+      <Button variant="contained" onClick={saveTracksToPlaylist} >
         Save Playlist
-      </Button>
+      </Button> </div>
+
+      : <p>Start by naming your playlist</p>}
+    </div>
     </>
   );
 }

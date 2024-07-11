@@ -25,13 +25,14 @@ export default function LoginButton(){
 	const logout = () => {
 		setToken("")
 		window.localStorage.removeItem("token")
+		window.location.reload();
 	}
 
 	return (
 		<>
 			<div>
                 		{!token ?
-                		<Button variant="outlined" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to Spotify</Button> : <Button variant="outlined" onClick={logout}>Logout</Button>}
+                		<Button variant="outlined" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=playlist-modify-private`}>Login to Spotify</Button> : <Button variant="outlined" onClick={logout}>Logout</Button>}
 			</div>
 		</>
 	)
