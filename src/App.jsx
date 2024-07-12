@@ -8,7 +8,7 @@ import Playlist from './components/Playlist/Playlist.jsx';
 import LoginButton from './components/spotify/LoginButton.jsx';
 import { Grid } from '@mui/material';
 import styles from './App.module.css'; 
-import Logo from '../public/logo.png';  // Import CSS module
+import Logo from '/logo.png';  // Import CSS module
 
 function App() {
   const [songData, setSongData] = useState([]);
