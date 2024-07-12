@@ -7,7 +7,8 @@ import Tracklist from './components/Tracklist/Tracklist.jsx';
 import Playlist from './components/Playlist/Playlist.jsx';
 import LoginButton from './components/spotify/LoginButton.jsx';
 import { Grid } from '@mui/material';
-import styles from './App.module.css'; // Import CSS module
+import styles from './App.module.css'; 
+import Logo from '../public/logo.png';  // Import CSS module
 
 function App() {
   const [songData, setSongData] = useState([]);
@@ -98,7 +99,7 @@ const trackDeets = {
 
   return (
     <>
-      <img src="/logo.png"/>
+      <img src={Logo}/>
       
     <div className={styles.appContainer}>
       <AccountDetails avatar={avatar} setAvatar={setAvatar} userName={userName} setUserName={setUserName} userId={userId} setUserId={setUserId} />
