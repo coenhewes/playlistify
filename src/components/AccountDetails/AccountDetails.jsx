@@ -18,9 +18,8 @@ export default function AccountDetails({ avatar, setAvatar, userName, setUserNam
 			setUserName(data.display_name)
 			setUserId(data.id)
 		})
+
 	}, [])
-	// API Call
-	
 
 	// return basic account details using materialUI
 	return (

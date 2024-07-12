@@ -98,7 +98,7 @@ const trackDeets = {
 
   return (
     <>
-      <img src="../public/logo.png"/>
+      <img src="/logo.png"/>
       
     <div className={styles.appContainer}>
       <AccountDetails avatar={avatar} setAvatar={setAvatar} userName={userName} setUserName={setUserName} userId={userId} setUserId={setUserId} />
