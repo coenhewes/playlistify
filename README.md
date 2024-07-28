@@ -55,24 +55,6 @@ bun run build
 
 This will generate a `dist` folder with the production-ready files.
 
-## Project Structure
-
-playlistify/
-├── src/
-│   ├── components/
-│   ├── hooks/
-│   ├── pages/
-│   ├── services/
-│   ├── styles/
-│   ├── App.jsx
-│   └── main.jsx
-├── public/
-├── index.html
-├── vite.config.js
-├── package.json
-├── README.md
-└── .gitignore
-
 ## Contributing
 
 Contributions, issues, and feature requests are welcome. Feel free to check the [issues page](https://github.com/coenhewes/playlistify/issues) if you want to contribute.
